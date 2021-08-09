@@ -2453,6 +2453,8 @@ MonoBehaviour:
   health: 5
   scoreText: {fileID: 1281705921}
   healthText: {fileID: 1902252582}
+  winLoseText: {fileID: 896861450}
+  winLoseBG: {fileID: 2130107429}
 --- !u!1001 &638038249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3464,7 +3466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: meow
+  m_Text: 
 --- !u!222 &896861451
 CanvasRenderer:
   m_ObjectHideFlags: 0

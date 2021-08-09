@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 	public int health = 5;
 	public Text scoreText;
 	public Text healthText;
+	public Text winLoseText;
+	public Image winLoseBG;
 	
 	/// <summary>
 	///  Increments score when the Player touches a coin 
@@ -38,7 +40,9 @@ public class PlayerController : MonoBehaviour
 		/// Winning!
 		if (other.tag == "Goal")
 		{
-			Debug.Log("You win!");
+			winLoseBG.gameObject.SetActive(true);
+			WinnerWinner();
+			// Debug.Log("You win!");
 		}		
 	}
 	
@@ -81,6 +85,14 @@ public class PlayerController : MonoBehaviour
 	/// </summary>
 	void SetHealthText(){
 		healthText.text = $"Health: {health}";
+	}
+	/// <summary>
+	/// Displays you win when Player touches the Goal
+	/// </summary>
+	void WinnerWinner(){
+		winLoseText.text = "You Win!";
+		// winLoseText.color = Color.white;
+		// winLoseBG.color = Color.green;
 	}
 }
 		
