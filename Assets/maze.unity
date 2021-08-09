@@ -2451,6 +2451,7 @@ MonoBehaviour:
   speed: 80
   health: 5
   scoreText: {fileID: 1281705921}
+  healthText: {fileID: 1902252582}
 --- !u!1001 &638038249
 PrefabInstance:
   m_ObjectHideFlags: 0

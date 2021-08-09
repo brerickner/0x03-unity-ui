@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	private int score = 0;
 	public int health = 5;
 	public Text scoreText;
+	public Text healthText;
 	
 	/// <summary>
 	///  Increments score when the Player touches a coin 
@@ -29,7 +30,8 @@ public class PlayerController : MonoBehaviour
 		if (other.tag == "Trap")
 		{
 			health--;
-			Debug.Log($"Health: {health}");
+			SetHealthText();
+			// Debug.Log($"Health: {health}");
 			Destroy(other.gameObject);
 		}
 		
@@ -73,6 +75,12 @@ public class PlayerController : MonoBehaviour
 	/// </summary>
 	void SetScoreText(){
 		scoreText.text = $"Score: {score}";
+	}
+	/// <summary>
+	/// Updates the HealthText object with the Player‘s current health
+	/// </summary>
+	void SetHealthText(){
+		healthText.text = $"Health: {health}";
 	}
 }
 		
