@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 			/// Makes winLoseBG visible
 			winLoseBG.gameObject.SetActive(true);
 			WinnerWinner();
+			StartCoroutine(LoadScene(3));
 			// Debug.Log("You win!");
 		}		
 	}
@@ -110,7 +111,11 @@ public class PlayerController : MonoBehaviour
 		winLoseText.text = "Game Over!";
 	}
 
-
+	/// <summary>
+	/// Delays scene reload for 3 seconds
+	/// </summary>
+	/// <param name="seconds">Delay in seconds</param>
+	/// <returns>Reset scene</returns>
 	IEnumerator LoadScene(float seconds){
 		yield return new WaitForSeconds(seconds);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
