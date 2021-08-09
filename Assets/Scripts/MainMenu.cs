@@ -11,4 +11,12 @@ public class MainMenu : MonoBehaviour
     public void PlayMaze(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    
+    /// <summary>
+    /// Closes game window when Quit button is pressed
+    /// </summary>
+    public void QuitMaze(){
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
 }
