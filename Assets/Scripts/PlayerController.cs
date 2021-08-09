@@ -91,8 +91,8 @@ public class PlayerController : MonoBehaviour
 	/// </summary>
 	void WinnerWinner(){
 		winLoseText.text = "You Win!";
-		// winLoseText.color = Color.white;
-		// winLoseBG.color = Color.green;
+		winLoseText.color = Color.black;
+		winLoseBG.color = Color.green;
 	}
 }
 		
