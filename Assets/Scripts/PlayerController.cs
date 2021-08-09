@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody rigid;
 	private int score = 0;
 	public int health = 5;
+	public Text scoreText;
 	
 	/// <summary>
 	///  Increments score when the Player touches a coin 
@@ -18,7 +20,8 @@ public class PlayerController : MonoBehaviour
 		if (other.tag == "Pickup")
 		{
 			score++;
-			Debug.Log($"Score: {score}");
+			// Debug.Log($"Score: {score}");
+			SetScoreText();
 			Destroy(other.gameObject);
 		}
 		
@@ -64,6 +67,12 @@ public class PlayerController : MonoBehaviour
 			// SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			// SceneManager.LoadScene(0);
 		}
+	}
+	/// <summary>
+	/// Updates ScoreText obj with Player's current score
+	/// </summary>
+	void SetScoreText(){
+		scoreText.text = $"Score: {score}";
 	}
 }
 		
