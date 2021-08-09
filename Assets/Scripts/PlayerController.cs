@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
 	
 	/// Player health expiration
 	void Update (){
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
         }
