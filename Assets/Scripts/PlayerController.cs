@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
 		/// Winning!
 		if (other.tag == "Goal")
 		{
+			/// Makes winLoseBG visible
 			winLoseBG.gameObject.SetActive(true);
 			WinnerWinner();
 			// Debug.Log("You win!");
@@ -68,8 +70,12 @@ public class PlayerController : MonoBehaviour
 	void Update (){
 		if (health == 0)
 		{
-			Debug.Log("Game Over!");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			/// Makes winLoseBG visible
+			winLoseBG.gameObject.SetActive(true);
+			GameOverMan();
+			StartCoroutine(LoadScene(3));
+			// SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+			// Debug.Log("Game Over!");
 			// SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			// SceneManager.LoadScene(0);
 		}
@@ -80,19 +86,34 @@ public class PlayerController : MonoBehaviour
 	void SetScoreText(){
 		scoreText.text = $"Score: {score}";
 	}
+	
 	/// <summary>
 	/// Updates the HealthText object with the Player‘s current health
 	/// </summary>
 	void SetHealthText(){
 		healthText.text = $"Health: {health}";
 	}
+	
 	/// <summary>
-	/// Displays you win when Player touches the Goal
+	/// Displays "You Win!" when Player touches the Goal. BG green, black text color.
 	/// </summary>
 	void WinnerWinner(){
 		winLoseText.text = "You Win!";
 		winLoseText.color = Color.black;
 		winLoseBG.color = Color.green;
+	}
+	
+	/// <summary>
+	/// Displayes "Game Over!" when Player health reaches 0. BG red, white text color.
+	/// </summary>
+	void GameOverMan(){
+		winLoseText.text = "Game Over!";
+	}
+
+
+	IEnumerator LoadScene(float seconds){
+		yield return new WaitForSeconds(seconds);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
 		
