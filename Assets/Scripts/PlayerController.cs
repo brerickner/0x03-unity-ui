@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
 	
 	/// Player health expiration
 	void Update (){
+		if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+		
 		if (health == 0)
 		{
 			/// Makes winLoseBG visible
